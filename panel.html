@@ -40,12 +40,15 @@ padding-left: 15px;
 </body>
 
 <script type="text/javascript">
+var counter = 0; // Track how many times the user has clicked "Add a column"
+
 function formSubmit() 
 { 
   selection = document.forms[0].desiredAction.value;
   if (selection == "addColumn")
   {
-    google.script.run.addColumn();
+    counter += 1;
+    google.script.run.addColumn(counter);
   } 
 }
 </script>
