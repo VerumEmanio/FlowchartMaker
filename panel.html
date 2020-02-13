@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+
+<style>
+body {
+padding-left: 15px;
+}
+.testInfoButton {
+  display: none;
+}
+#tcVariables {
+  display: none;
+}
+.toggleForm {
+  display: none;
+}
+.button, button, input[type="button"], input[type="image"], input[type="reset"], input[type="submit"] {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+.promptForInfo {
+  font-weight: bold;
+}
+</style>
+
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+  <form id="userSelection">
+    <p>What would you like to do?</p>
+    <select name="desiredAction">
+      <option value="addColumn">Add a column</option>
+      <option value="addTest">Add a test to the column</option> 
+      <option value="endColumn">End the column</option>
+    </select>
+    <br>
+<input type="button" class="action" onclick="formSubmit()" value="Go" />
+</body>
+
+<script type="text/javascript">
+function formSubmit() 
+{ 
+  selection = document.forms[0].desiredAction.value;
+  if (selection == "addColumn")
+  {
+    google.script.run.addColumn();
+  } 
+}
+</script>
+</html>
