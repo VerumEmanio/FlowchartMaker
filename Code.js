@@ -19,7 +19,7 @@ function addColumn(counter) {
   var source = ss.getSheets()[1];
   var destination = ss.getSheets()[0];
   var range = source.getRange("F12:G15");
-  var cellForNextColumn = String.charCodeAt("L") + 3;
+  var cellForNextColumn = String.charCodeAt("L") + 3; // Returns 79.
 
   if (counter == 1) // This handles the first column, which always start at cell L17.
   {
