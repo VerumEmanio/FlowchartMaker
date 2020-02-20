@@ -83,7 +83,8 @@ function formSubmit()
       google.script.run.addTest(defaultColumn, rowForNextTest);
       rowForNextTest += 6; // Increments to correctly position the next row.
     } else {
-      google.script.run.addTest(cellForNextColumn);
+      google.script.run.addTest(cellForNextColumn - 3, rowForNextTest); // Subtracting 3 keeps us in the current column instead of moving 3 columns to the right like we do in the if.
+      rowForNextTest += 6;
     }
   }
 }
