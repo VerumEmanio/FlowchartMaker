@@ -14,12 +14,13 @@ function openOptions()
       .showSidebar(html); // Display the HTML file as a sidebar.
 }
 
-function addColumn() {
+function addColumn(cellForNextColumn)
+{
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var source = ss.getSheets()[1];
   var destination = ss.getSheets()[0];
-
   var range = source.getRange("F12:G15");
 
-  range.copyTo(destination.getRange("L17")); // Additional columns will start at different values.
+  var targetCell = String.fromCharCode(cellForNextColumn) + "17"; // Set the column and row of the current target cell.
+  range.copyTo(destination.getRange(targetCell)); 
 }
