@@ -24,17 +24,6 @@ function addColumn(pasteLocation)
   var targetCell = String.fromCharCode(pasteLocation) + "17"; // Set the column and row of the current target cell.
   range.copyTo(destination.getRange(targetCell)); 
 }
-/*
-function addTest(pasteLocationColumn, pasteLocationRow)
-{
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
-  var source = ss.getSheets()[1];
-  var destination = ss.getSheets()[0];
-  var range = source.getRange("F10:G15");
-  var targetCell = String.fromCharCode(pasteLocationColumn) + pasteLocationRow.toString(); // Set the column and row of the current target cell.
-  range.copyTo(destination.getRange(targetCell)); 
-}
-*/
 
 function addTest(pasteLocationColumn, pasteLocationRow)
 {

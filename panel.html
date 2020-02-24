@@ -40,30 +40,6 @@ padding-left: 15px;
 </body>
 
 <script type="text/javascript">
-/*
-var cellForNextColumn = 101; // The char code of E, where the first column starts.
-var addedColumn = 0; // Record each time the user adds a column.
-var defaultColumn = "B".charCodeAt(0);
-var rowForNextTest = 21; 
-
-function formSubmit() 
-{ 
-  selection = document.forms[0].desiredAction.value; // What the user selects from the drop-down.
-  if (selection == "addColumn")
-  {
-    google.script.run.addColumn(cellForNextColumn);
-    cellForNextColumn += 3; // Increments to correctly position the next column, which is always appended 3 cells to the right of the current column.
-    addedColumn += 1;
-  } else if (selection == "addTest") {
-    if (addedColumn == "0") { // If no columns have been added, tests are appended to column B until the user adds a column.
-      google.script.run.addTest(defaultColumn, rowForNextTest);
-      rowForNextTest += 6; // Increments to correctly position the next row.
-    } else {
-      google.script.run.addTest(cellForNextColumn);
-    }
-  }
-}
-*/
 
 var cellForNextColumn = 101; // The char code of E, where the first column starts.
 var addedColumn = 0; // Record each time the user adds a column.
@@ -78,6 +54,7 @@ function formSubmit()
     google.script.run.addColumn(cellForNextColumn);
     cellForNextColumn += 3; // Increments to correctly position the next column, which is always appended 3 cells to the right of the current column.
     addedColumn += 1;
+    rowForNextTest = 21;
   } else if (selection == "addTest") {
     if (addedColumn == "0") { // If no columns have been added, tests are appended to column B until the user adds a column.
       google.script.run.addTest(defaultColumn, rowForNextTest);
