@@ -55,12 +55,20 @@ function formSubmit()
     cellForNextColumn += 3; // Increments to correctly position the next column, which is always appended 3 cells to the right of the current column.
     addedColumn += 1;
     rowForNextTest = 21;
-  } else if (selection == "addTest") {
+  } else if (selection == "addTest" || selection == "endColumn") { // These options operate the same way. Only the pasted cells are different.
     if (addedColumn == "0") { // If no columns have been added, tests are appended to column B until the user adds a column.
-      google.script.run.addTest(defaultColumn, rowForNextTest);
+      if (selection == "addTest") {
+        google.script.run.addTest(defaultColumn, rowForNextTest);
+      } else {
+        google.script.run.endColumn(defaultColumn, rowForNextTest);
+      }
       rowForNextTest += 6; // Increments to correctly position the next row.
     } else {
-      google.script.run.addTest(cellForNextColumn - 3, rowForNextTest); // Subtracting 3 keeps us in the current column instead of moving 3 columns to the right like we do in the if.
+      if (selection == "addTest") {
+        google.script.run.addTest(cellForNextColumn - 3, rowForNextTest); // Subtracting 3 keeps us in the current column instead of moving 3 columns to the right like we do in the if.
+      } else {
+        google.script.run.endColumn(cellForNextColumn - 3, rowForNextTest); 
+      }
       rowForNextTest += 6;
     }
   }
