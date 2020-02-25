@@ -20,8 +20,8 @@ function addColumn(pasteLocation, markAsSubColumn)
   var source = ss.getSheets()[1];
   var destination = ss.getSheets()[0];
   if (markAsSubColumn) {
-    var range = source.getRange("F12:G15");
-    var targetCell = String.fromCharCode(pasteLocation) + "17"; // Set the column and row of the current target cell.
+    var range = source.getRange("E12:G15"); // Copy the test box and the arrow pointing sideways, since that's everything needed for a subcolumn.
+    var targetCell = String.fromCharCode(pasteLocation - 1) + "17"; // Set the column and row of the current target cell.
   } else {
     var range = source.getRange("F10:G15");
     var targetCell = String.fromCharCode(pasteLocation) + "15";
