@@ -36,6 +36,8 @@ padding-left: 15px;
       <option value="endColumn">End the current column</option>
     </select>
     <br>
+    <input type="checkbox" id="subColumn" name="subColumn" value="Yes">
+  <label for="subColumn">Is this a subcolumn of the previous column?</label><br>
 <input type="button" class="action" onclick="formSubmit()" value="Go" />
 </body>
 
@@ -48,10 +50,11 @@ var rowForNextTest = 21;
 
 function formSubmit() 
 { 
+  var markAsSubColumn = document.getElementById("subColumn").checked; // The boolean value of the add column check box.
   selection = document.forms[0].desiredAction.value; // What the user selects from the drop-down.
   if (selection == "addColumn")
   {
-    google.script.run.addColumn(cellForNextColumn);
+    google.script.run.addColumn(cellForNextColumn, markAsSubColumn);
     cellForNextColumn += 3; // Increments to correctly position the next column, which is always appended 3 cells to the right of the current column.
     addedColumn += 1;
     rowForNextTest = 21;
@@ -72,6 +75,7 @@ function formSubmit()
       rowForNextTest += 6;
     }
   }
+  document.getElementById("subColumn").checked = false; // Reset the check box before the next selection.
 }
 </script>
 </html>

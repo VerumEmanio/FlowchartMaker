@@ -14,14 +14,18 @@ function openOptions()
       .showSidebar(html); // Display the HTML file as a sidebar.
 }
 
-function addColumn(pasteLocation)
+function addColumn(pasteLocation, markAsSubColumn)
 {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var source = ss.getSheets()[1];
   var destination = ss.getSheets()[0];
-  var range = source.getRange("F12:G15");
-
-  var targetCell = String.fromCharCode(pasteLocation) + "17"; // Set the column and row of the current target cell.
+  if (markAsSubColumn) {
+    var range = source.getRange("F12:G15");
+    var targetCell = String.fromCharCode(pasteLocation) + "17"; // Set the column and row of the current target cell.
+  } else {
+    var range = source.getRange("F10:G15");
+    var targetCell = String.fromCharCode(pasteLocation) + "15";
+  }
   range.copyTo(destination.getRange(targetCell)); 
 }
 
