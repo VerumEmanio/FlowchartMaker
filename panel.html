@@ -21,6 +21,10 @@ padding-left: 15px;
 .promptForInfo {
   font-weight: bold;
 }
+#intialPrompt {
+  margin-top: 15px;
+  display: none;
+}
 </style>
 
 <html>
@@ -28,6 +32,19 @@ padding-left: 15px;
     <base target="_top">
   </head>
   <body>
+    <!--
+    <form id="initialPrompt">
+    <label for="totalUnits">How many units total will be used in your test plan?</label>
+    <input type="text" id="totalUnits"><br><br>
+    <label for="intialTestType">Which type of test is this?</label>
+    <input type="text" id="intialTestType"><br><br>
+    <label for="intialTestUnits">How many units will be used in this test?</label>
+    <input type="text" id="intialTestUnits"><br><br>
+    <label for="intialTestDuration">What's the duration of the test in hours?</label>
+    <input type="text" id="intialTestDuration">
+    <input type="hidden" id="hiddenFormNumber" value="0">
+  </form>
+  -->
   <form id="userSelection">
     <p>What would you like to do?</p>
     <select name="desiredAction">
@@ -35,9 +52,10 @@ padding-left: 15px;
       <option value="addTest">Add a test to the current column</option> 
       <option value="endColumn">End the current column</option>
     </select>
-    <br>
+    <br><br>
     <input type="checkbox" id="subColumn" name="subColumn" value="Yes">
   <label for="subColumn">Is this a subcolumn of the previous column?</label><br>
+  </form>
 <input type="button" class="action" onclick="formSubmit()" value="Go" />
 </body>
 
@@ -49,8 +67,11 @@ var defaultColumn = "B".charCodeAt(0);
 var rowForNextTest = 21; 
 
 function formSubmit() 
-{ 
-  var markAsSubColumn = document.getElementById("subColumn").checked; // The boolean value of the add column check box.
+{
+  console.log(document.forms[0]);
+  // google.script.run.populateExistingBoxes(document.forms[0]);
+
+  var markAsSubColumn = document.getElementById("subColumn").checked; // Get the boolean value of the check box.
   selection = document.forms[0].desiredAction.value; // What the user selects from the drop-down.
   if (selection == "addColumn")
   {
