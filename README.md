@@ -4,7 +4,7 @@
 This is a Google Sheets document-bound script that uses the engineer's input to auto-generate a unique flowchart that is included in test plans for Trimble's components lab. FlowchartMaker should be used alongside TemplateMaker.
 
 ## Open the Sidebar
-1. In the toolbar, click Macro, and then click Load the Sidebar. If this is your first time running a script in this spreadsheet, you'll be prompted to authorize the script. Once you authorize the script, the sidebar will appear.
+1. In the toolbar, click Macro, and then click Load the Sidebar. If this is your first time running a script in this spreadsheet, you'll be prompted to authorize the script. Once you authorize the script, the sidebar will appear after you click Load the Sidebar a second time.
 
 ## Add a Column
 1. Open the sidebar.
